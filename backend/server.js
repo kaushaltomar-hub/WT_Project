@@ -10,7 +10,7 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://wt-project-five.vercel.app"],
+    origin: ["https://wt-project-five.vercel.app"],
     credentials: true,
   }),
 );
