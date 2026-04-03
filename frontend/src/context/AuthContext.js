@@ -3,7 +3,9 @@ import axios from 'axios';
 
 const AuthContext = createContext();
 
-const API = axios.create({ baseURL: '/api' });
+const API = axios.create({
+  baseURL: process.env.REACT_APP_API_URL,
+});
 
 // Intercept to add token
 API.interceptors.request.use((config) => {
