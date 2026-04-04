@@ -8,12 +8,21 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(
-  cors({
-    origin: ["https://wt-project-five.vercel.app"],
-    credentials: true,
-  }),
-);
+// Middleware
+const corsOptions = {
+  origin: [
+    "https://wt-project-five.vercel.app",
+    "https://wt-project-ck2rm5zkf-kaushaltomar-hubs-projects.vercel.app" // add this also
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
+// VERY IMPORTANT (preflight fix)
+app.options("*", cors(corsOptions));
+
 app.use(express.json());
 
 // Routes
